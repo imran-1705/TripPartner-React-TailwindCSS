@@ -1,0 +1,6 @@
+.slick-arrow {
+    position: absolute;
+    z-index: 10;
+    width: 10;
+    height: 30px;
+}

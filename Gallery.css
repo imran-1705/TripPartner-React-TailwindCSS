@@ -1,0 +1,30 @@
+.gallery-grid {
+    column-count: 3;
+    column-gap: 15px;
+}
+
+.gallery-grid a img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    padding: 5px 0;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid a img:hover {
+    filter: opacity(0.9);
+    transform: scale(1.03);
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        column-count: 1;
+    }
+}
