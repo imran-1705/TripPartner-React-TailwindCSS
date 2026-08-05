@@ -1,0 +1,29 @@
+{
+  "name": "trippartner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm --prefix client run build",
+    "start": "npm --prefix server run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imran-1705/TripPartner-React-TailwindCSS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/imran-1705/TripPartner-React-TailwindCSS/issues"
+  },
+  "homepage": "https://github.com/imran-1705/TripPartner-React-TailwindCSS#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
+}
