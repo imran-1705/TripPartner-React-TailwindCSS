@@ -1,17 +1,22 @@
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
-  try {
-    if (!process.env.MONGODB_URI || process.env.MONGODB_URI.includes('your_connection_string')) {
-      return null;
-    }
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    console.error('MongoDB connection error: MONGODB_URI is not set in server/.env');
+    process.exit(1);
+  }
 
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('MongoDB connected');
-    return mongoose.connection;
+  try {
+    const conn = await mongoose.connect(uri, {
+      dbName: process.env.MONGODB_DB_NAME || 'TripPartner',
+      serverSelectionTimeoutMS: 5000
+    });
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.warn('MongoDB connection skipped:', error.message);
-    return null;
+    console.error('MongoDB connection error:', error.message);
+    process.exit(1);
   }
 };
 

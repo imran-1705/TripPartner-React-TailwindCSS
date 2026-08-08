@@ -12,3 +12,7 @@ build/
 dist/
 coverage/
 .vscode/
+node_modules/
+.env
+.env.*
+!.env.example
