@@ -33,6 +33,7 @@ connectDB();
 // Health check
 app.get('/api', (_req, res) => {
   res.json({
+    success: true,
     message: 'TripPartner API is live'
   });
 });
@@ -40,15 +41,6 @@ app.get('/api', (_req, res) => {
 // Routes
 app.use('/api', authRoutes);
 app.use('/api', travelRoutes);
-
-// Production frontend
-if (process.env.NODE_ENV === 'production') {
-  app.use(
-    express.static(
-      path.join(__dirname, '..', 'client', 'dist')
-    )
-  );
-}
 
 // Error handler
 app.use(errorHandler);
